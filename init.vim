@@ -62,10 +62,12 @@ let g:ctrlp_cmd = 'CtrlP'
 " Give backspace more power
 set backspace=indent,eol,start
 
-" Store swp files and others in home directory
+" Swap, backup, and undo
 set backupdir=$HOME/.vim/backup//
 set directory=$HOME/.vim/swap//
-set undodir=~/.vim/undo//
+set undofile
+set undodir=~/.vim/undo
+set undolevels=5000
 
 ""
 "" Show buffers in top bar
