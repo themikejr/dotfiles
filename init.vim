@@ -89,6 +89,6 @@ set smartcase   " ... unless they contain at least one capital letter
 ""
 "" User-defined Commands and Customizations
 ""
-command C bp|bd # "close current buffer without closing window
+command! C bp|bd # "close current buffer without closing window
 autocmd BufWritePre * :%s/\s\+$//e " Remove trailing whitespace on save
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " close vim if NerdTree is all that's left.
