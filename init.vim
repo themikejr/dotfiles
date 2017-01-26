@@ -8,6 +8,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ap/vim-buftabline'
+Plug 'benekastah/neomake'
 
 call plug#end()
 
@@ -20,6 +21,7 @@ filetype plugin indent on
 " Hide default mode marker + stuff
 set laststatus=2
 set noshowmode
+set showtabline=2 " Show buffers in top bar
 
 set number " always show line numbers
 set timeoutlen=1000 ttimeoutlen=0 " decrease the lag when entering normal mode
@@ -69,11 +71,6 @@ set undofile
 set undodir=~/.vim/undo
 set undolevels=5000
 
-""
-"" Show buffers in top bar
-""
-set showtabline=2
-
 " remap arrow keys
  nnoremap <Left> :bprev<CR>
  nnoremap <Right> :bnext<CR>
@@ -92,3 +89,6 @@ set smartcase   " ... unless they contain at least one capital letter
 command! C bp|bd # "close current buffer without closing window
 autocmd BufWritePre * :%s/\s\+$//e " Remove trailing whitespace on save
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " close vim if NerdTree is all that's left.
+autocmd BufNewFile,BufRead *.coffee setlocal makeprg=cd\ ~/Development/repos/eFlex\ &&\ webApp/node_modules/coffeelint/bin/coffeelint\ -f\ coffeelint.json\ %
+"autocmd! BufWritePost *coffee make
+
