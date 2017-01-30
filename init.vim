@@ -9,11 +9,23 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ap/vim-buftabline'
 Plug 'benekastah/neomake'
+Plug 'bkad/camelcasemotion'
 
 call plug#end()
 
 " enable deoplete
 let g:deoplete#enable_at_startup = 1
+
+" enable camelCase
+call camelcasemotion#CreateMotionMappings('<leader>')
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+map <silent> ge <Plug>CamelCaseMotion_ge
+sunmap w
+sunmap b
+sunmap e
+sunmap ge
 
 syntax on " activate syntax highlighting for various files (used on conjunction w/ vim-polyglot)
 filetype plugin indent on
