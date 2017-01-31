@@ -41,6 +41,9 @@ set timeoutlen=1000 ttimeoutlen=0 " decrease the lag when entering normal mode
 " Automatically read file when updated unless buffer has unsaved changes
 set autoread
 
+" yank into paste from system clipboard
+"set clipboard=unnamed
+
 " Indentation-related
 set tabstop=4
 set shiftwidth=4
@@ -94,6 +97,12 @@ set hlsearch    " highlight matches
 set incsearch   " incremental searching
 set ignorecase  " searches are case insensitive...
 set smartcase   " ... unless they contain at least one capital letter
+
+""
+"" CoffeeScript
+""
+"let g:coffee_linter = '/Users/themikejr/Development/repos/eFlex/webApp/node_modules.coffeelint/bin/coffeelint'
+"let g:coffee_lint_options = '-f coffeelint.json'
 
 ""
 "" User-defined Commands and Customizations
