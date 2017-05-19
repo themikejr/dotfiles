@@ -14,6 +14,7 @@ Plug 'benekastah/neomake'
 Plug 'tpope/vim-fugitive'
 Plug 'chaoren/vim-wordmotion'
 Plug 'lukaszkorecki/CoffeeTags'
+Plug 'vimwiki'
 
 call plug#end()
 
@@ -109,3 +110,5 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 autocmd BufNewFile,BufRead *.coffee setlocal makeprg=cd\ ~/Development/repos/eFlex\ &&\ webApp/node_modules/coffeelint/bin/coffeelint\ -f\ coffeelint.json\ %
 "autocmd! BufWritePost *coffee make
 noremap <c-p> :FZF<CR>
+
+let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
