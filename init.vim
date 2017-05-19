@@ -16,6 +16,7 @@ Plug 'chaoren/vim-wordmotion'
 Plug 'lukaszkorecki/CoffeeTags'
 Plug 'vimwiki/vimwiki'
 Plug 'raimondi/delimitmate'
+Plug 'mhinz/vim-startify'
 
 call plug#end()
 
