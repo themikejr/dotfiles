@@ -14,7 +14,8 @@ Plug 'benekastah/neomake'
 Plug 'tpope/vim-fugitive'
 Plug 'chaoren/vim-wordmotion'
 Plug 'lukaszkorecki/CoffeeTags'
-Plug 'vimwiki'
+Plug 'vimwiki/vimwiki'
+Plug 'raimondi/delimitmate'
 
 call plug#end()
 
