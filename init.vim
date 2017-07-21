@@ -17,6 +17,15 @@ Plug 'lukaszkorecki/CoffeeTags'
 Plug 'vimwiki/vimwiki'
 Plug 'raimondi/delimitmate'
 Plug 'mhinz/vim-startify'
+"" COLORS
+Plug 'jnurmine/zenburn'
+Plug 'morhetz/gruvbox'
+Plug 'sjl/badwolf'
+"" WRITING MODE
+Plug 'junegunn/goyo.vim'
+Plug 'reedes/vim-colors-pencil'
+
+Plug 'andrewradev/switch.vim'
 
 call plug#end()
 
@@ -58,8 +67,28 @@ au FileType cs setl sw=4 sts=4 ts=4 et
 au FileType pug setl sw=2 sts=2 ts=2 et
 
 " Use monokai theme from https://github.com/sickill/vim-monokai
-colorscheme monokai
-set t_Co=256
+"colorscheme monokai
+
+"colorscheme gruvbox
+"let g:gruvbox_contrast_dark='hard'
+"set background=dark
+
+"colorscheme zenburn
+"set t_Co=256
+
+colorscheme badwolf
+function! s:goyo_enter()
+    colorscheme pencil
+    set background=dark
+endfunction
+
+function! s:goyo_leave()
+    colorscheme badwolf
+    set background&
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 " Ack/Ag integration
 let g:ackprg = 'ag --nogroup --nocolor --column' " mapping to use silver surfer from ack
@@ -98,6 +127,25 @@ highlight Search ctermfg=black
 nnoremap <leader><space> :nohlsearch<CR>
 
 ""
+"" Toggling (switch.vim)
+""
+let g:switch_mapping = "-"
+let g:switch_reverse_mapping = '0'
+let g:switch_custom_definitions =
+    \ [
+    \   ['it', 'it\.only']
+    \ ]
+
+""
+"" Command auto-completion
+""
+set wildmenu
+set wildmode=full
+" auto complete dictionary words
+set spell
+set complete+=kspell
+
+""
 "" CoffeeScript
 ""
 "let g:coffee_linter = '/Users/themikejr/Development/repos/eFlex/webApp/node_modules.coffeelint/bin/coffeelint'
@@ -114,3 +162,12 @@ autocmd BufNewFile,BufRead *.coffee setlocal makeprg=cd\ ~/Development/repos/eFl
 noremap <c-p> :FZF<CR>
 
 let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
+
+"" autosave / autoread
+set autoread
+
+augroup autoSaveAndRead
+    autocmd!
+    autocmd TextChanged,InsertLeave,FocusLost * silent! wall
+    autocmd CursorHold * silent! checktime
+augroup END
