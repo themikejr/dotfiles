@@ -15,7 +15,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'chaoren/vim-wordmotion'
 Plug 'lukaszkorecki/CoffeeTags'
 Plug 'vimwiki/vimwiki'
-Plug 'raimondi/delimitmate'
+"Plug 'raimondi/delimitmate'
+Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-startify'
 "" COLORS
 Plug 'jnurmine/zenburn'
@@ -155,11 +156,14 @@ set complete+=kspell
 "" User-defined Commands and Customizations
 ""
 command! C bp|bd # "close current buffer without closing window
+
 autocmd BufWritePre * :%s/\s\+$//e " Remove trailing whitespace on save
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " close vim if NerdTree is all that's left.
 autocmd BufNewFile,BufRead *.coffee setlocal makeprg=cd\ ~/Development/repos/eFlex\ &&\ webApp/node_modules/coffeelint/bin/coffeelint\ -f\ coffeelint.json\ %
 "autocmd! BufWritePost *coffee make
 noremap <c-p> :FZF<CR>
+noremap ; :Buffers<CR>
+noremap ' :Ag<CR>
 
 let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
 
