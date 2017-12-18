@@ -8,14 +8,12 @@ Plug 'mileszs/ack.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'ap/vim-buftabline'
-Plug 'benekastah/neomake'
 Plug 'tpope/vim-fugitive'
 Plug 'chaoren/vim-wordmotion'
 Plug 'lukaszkorecki/CoffeeTags'
 Plug 'vimwiki/vimwiki'
-"Plug 'raimondi/delimitmate'
 Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-startify'
 "" COLORS
@@ -27,6 +25,9 @@ Plug 'junegunn/goyo.vim'
 Plug 'reedes/vim-colors-pencil'
 
 Plug 'andrewradev/switch.vim'
+
+
+Plug 'vimoutliner/vimoutliner'
 
 call plug#end()
 
