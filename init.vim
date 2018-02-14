@@ -1,10 +1,13 @@
 call plug#begin('~/.vim/plugged')
 
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
-Plug 'shougo/deoplete.nvim'
-Plug 'mileszs/ack.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
@@ -12,24 +15,30 @@ Plug 'w0rp/ale'
 Plug 'ap/vim-buftabline'
 Plug 'tpope/vim-fugitive'
 Plug 'chaoren/vim-wordmotion'
-Plug 'lukaszkorecki/CoffeeTags'
 Plug 'vimwiki/vimwiki'
 Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-startify'
+Plug 'raimondi/delimitmate'
+
 "" COLORS
 Plug 'jnurmine/zenburn'
 Plug 'morhetz/gruvbox'
 Plug 'sjl/badwolf'
+"
 "" WRITING MODE
 Plug 'junegunn/goyo.vim'
 Plug 'reedes/vim-colors-pencil'
-
-Plug 'andrewradev/switch.vim'
-
-
 Plug 'vimoutliner/vimoutliner'
 
+"" COFFEESCRIPT
+Plug 'lukaszkorecki/CoffeeTags'
+
+"" RUBY
+Plug 'fishbullet/deoplete-ruby'
+
 call plug#end()
+
+set rtp+=/usr/local/opt/fzf
 
 " enable deoplete
 let g:deoplete#enable_at_startup = 1
@@ -92,17 +101,6 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
-" Ack/Ag integration
-let g:ackprg = 'ag --nogroup --nocolor --column' " mapping to use silver surfer from ack
-set shellpipe=> " hide ag terminal overflow
-
-" Ctrl P
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-"let g:ctrlp_user_command = 'rg %s -S -l --files -g ""'
-let g:ctrlp_use_caching = 0
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-
 " Give backspace more power
 set backspace=indent,eol,start
 
@@ -129,16 +127,6 @@ highlight Search ctermfg=black
 nnoremap <leader><space> :nohlsearch<CR>
 
 ""
-"" Toggling (switch.vim)
-""
-let g:switch_mapping = "-"
-let g:switch_reverse_mapping = '0'
-let g:switch_custom_definitions =
-    \ [
-    \   ['it', 'it\.only']
-    \ ]
-
-""
 "" Command auto-completion
 ""
 set wildmenu
@@ -146,12 +134,6 @@ set wildmode=full
 " auto complete dictionary words
 set spell
 set complete+=kspell
-
-""
-"" CoffeeScript
-""
-"let g:coffee_linter = '/Users/themikejr/Development/repos/eFlex/webApp/node_modules.coffeelint/bin/coffeelint'
-"let g:coffee_lint_options = '-f coffeelint.json'
 
 ""
 "" User-defined Commands and Customizations
