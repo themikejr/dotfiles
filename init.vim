@@ -147,6 +147,11 @@ autocmd BufNewFile,BufRead *.coffee setlocal makeprg=cd\ ~/Development/repos/eFl
 noremap <c-p> :FZF<CR>
 noremap ; :Buffers<CR>
 noremap ' :Ag<CR>
+nnoremap <S-Right> <c-w>l
+nnoremap <S-Left> <c-w>h
+nnoremap <S-Up> <c-w>k
+nnoremap <S-Down> <c-w>j
+
 
 let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
 
