@@ -4,10 +4,9 @@ function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
 
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'sheerun/vim-polyglot'
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
@@ -20,6 +19,12 @@ Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-startify'
 Plug 'raimondi/delimitmate'
 
+"" LANGUAGES
+Plug 'sheerun/vim-polyglot'
+Plug 'vim-ruby/vim-ruby'
+Plug 'lukaszkorecki/CoffeeTags'
+Plug 'fishbullet/deoplete-ruby'
+
 "" COLORS
 Plug 'jnurmine/zenburn'
 Plug 'morhetz/gruvbox'
@@ -29,12 +34,6 @@ Plug 'sjl/badwolf'
 Plug 'junegunn/goyo.vim'
 Plug 'reedes/vim-colors-pencil'
 Plug 'vimoutliner/vimoutliner'
-
-"" COFFEESCRIPT
-Plug 'lukaszkorecki/CoffeeTags'
-
-"" RUBY
-Plug 'fishbullet/deoplete-ruby'
 
 call plug#end()
 
@@ -151,7 +150,6 @@ nnoremap <S-Right> <c-w>l
 nnoremap <S-Left> <c-w>h
 nnoremap <S-Up> <c-w>k
 nnoremap <S-Down> <c-w>j
-
 
 let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
 
