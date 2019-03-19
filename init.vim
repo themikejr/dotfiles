@@ -18,12 +18,17 @@ Plug 'vimwiki/vimwiki'
 Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-startify'
 Plug 'raimondi/delimitmate'
+Plug 'janko-m/vim-test'
 
 "" LANGUAGES
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-ruby/vim-ruby'
 Plug 'lukaszkorecki/CoffeeTags'
 Plug 'fishbullet/deoplete-ruby'
+Plug 'tpope/rbenv-ctags'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-bundler'
+Plug 'pearofducks/ansible-vim'
 
 "" COLORS
 Plug 'jnurmine/zenburn'
@@ -34,6 +39,8 @@ Plug 'sjl/badwolf'
 Plug 'junegunn/goyo.vim'
 Plug 'reedes/vim-colors-pencil'
 Plug 'vimoutliner/vimoutliner'
+
+Plug 'janko-m/vim-test'
 
 call plug#end()
 
@@ -75,6 +82,7 @@ au FileType stylus setl sw=2 sts=2 ts=2 et
 au FileType yml setl sw=2 sts=2 ts=2 et
 au FileType cs setl sw=4 sts=4 ts=4 et
 au FileType pug setl sw=2 sts=2 ts=2 et
+"au Filetype gitcommit setl textwidth=72
 
 " Use monokai theme from https://github.com/sickill/vim-monokai
 "colorscheme monokai
@@ -114,6 +122,9 @@ set undolevels=5000
  nnoremap <Left> :bprev<CR>
  nnoremap <Right> :bnext<CR>
 
+" Wrapping shouldn't break words
+set linebreak
+
 ""
 "" Searching
 ""
@@ -138,7 +149,8 @@ set complete+=kspell
 "" User-defined Commands and Customizations
 ""
 command! C bp|bd # "close current buffer without closing window
-
+command! FormatJson :%!python -m json.tool
+command! FormatXml :%!xmllint --format -
 autocmd BufWritePre * :%s/\s\+$//e " Remove trailing whitespace on save
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " close vim if NerdTree is all that's left.
 autocmd BufNewFile,BufRead *.coffee setlocal makeprg=cd\ ~/Development/repos/eFlex\ &&\ webApp/node_modules/coffeelint/bin/coffeelint\ -f\ coffeelint.json\ %
@@ -150,6 +162,26 @@ nnoremap <S-Right> <c-w>l
 nnoremap <S-Left> <c-w>h
 nnoremap <S-Up> <c-w>k
 nnoremap <S-Down> <c-w>j
+nnoremap <leader>] <C-]>
+nnoremap <leader>[ <C-o>
+
+""
+"" Vim-Test
+""
+nmap <silent> t<C-n> :TestNearest<CR> " t Ctrl+n
+nmap <silent> t<C-f> :TestFile<CR>    " t Ctrl+f
+nmap <silent> t<C-s> :TestSuite<CR>   " t Ctrl+s
+nmap <silent> t<C-l> :TestLast<CR>    " t Ctrl+l
+nmap <silent> t<C-g> :TestVisit<CR>   " t Ctrl+g
+
+let test#ruby#minitest#file_pattern = 'test_.*\.rb'
+let g:test#ruby#minitest#executable = '/Users/mtb000/.rvm/rubies/jruby-9.1.13.0/bin/ruby'
+
+""
+"" Tags for Ruby
+""
+set tags+=.tags
+nnoremap <leader>ct :silent ! ctags -R --languages=ruby --exclude=.git --exclude=log -f tags<cr>
 
 let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
 
