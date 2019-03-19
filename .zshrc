@@ -1,5 +1,9 @@
 export FZF_DEFAULT_COMMAND='rg --no-ignore --files --hidden --follow --glob "!.git/*"'
 
+# iTerm2
+function title() { echo -ne "\e]1;$1\a" }
+export DISABLE_AUTO_TITLE="true"
+
 # Git
 alias gs="git status"
 alias gd="git diff"
