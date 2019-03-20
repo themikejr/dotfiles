@@ -8,6 +8,7 @@ export DISABLE_AUTO_TITLE="true"
 alias gs="git status"
 alias gd="git diff"
 alias gdc="git diff --cached"
+alias gt="git log --since=midnight --author='<author here>' --oneline"
 
 # Vim
 if type nvim > /dev/null 2>&1; then
