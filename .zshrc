@@ -60,3 +60,10 @@ function update() {
     announce "you can hit mas upgrade to upgrade theses apps from the app store:"
     mas outdated
 }
+
+function install_defaults() {
+    annouce "VSCode ApplePressAndHoldEnabled = false"
+    defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+    announce 'screencapture location = ~/Documents/screenshots'
+    defaults write com.apple.screencapture location ~/Documents/screenshots
+}
