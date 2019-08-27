@@ -62,7 +62,7 @@ function update() {
 }
 
 function install_defaults() {
-    annouce "VSCode ApplePressAndHoldEnabled = false"
+    announce "VSCode ApplePressAndHoldEnabled = false"
     defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
     announce 'screencapture location = ~/Documents/screenshots'
     defaults write com.apple.screencapture location ~/Documents/screenshots
