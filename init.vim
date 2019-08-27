@@ -32,6 +32,7 @@ Plug 'tpope/vim-bundler'
 Plug 'pearofducks/ansible-vim'
 Plug 'quramy/tsuquyomi'
 "Plug 'leafgarland/typescript-vim'
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 "" COLORS
 Plug 'jnurmine/zenburn'
@@ -207,6 +208,9 @@ let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint'],
 \}
+
+"" VIM-PRETTIER
+let g:prettier#exec_cmd_async = 1
 
 " Triger `autoread` when files changes on disk
 " https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
