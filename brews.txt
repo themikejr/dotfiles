@@ -8,3 +8,6 @@ git-recent
 git-standup
 mas
 rename
+zsh
+neovim
+youtube-dl
