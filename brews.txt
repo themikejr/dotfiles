@@ -1,0 +1,10 @@
+wget
+python2
+python3
+autojump
+ripgrep
+the_silver_searcher
+git-recent
+git-standup
+mas
+rename
