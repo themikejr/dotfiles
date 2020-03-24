@@ -51,8 +51,17 @@ function update() {
     announce "upgrading global npm packages"
     npm update -g
 
+    announce "updating nvm lts/dubnium"
+    nvm install lts/dubnium --reinstall-packages-from=node
+
     announce "updating vim plugins"
     vim +PlugUpdate +PlugUpgrade +UpdateRemotePlugins +qa
+
+    announce "updating python2 nvim provider"
+    python2 -m pip install --user --upgrade pynvim
+
+    announce "updating python3 nvim provider"
+    python3 -m pip install --user --upgrade pynvim
 
     announce "upgrading oh-my-zsh"
     upgrade_oh_my_zsh
@@ -64,6 +73,17 @@ function update() {
 function install_defaults() {
     announce "VSCode ApplePressAndHoldEnabled = false"
     defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+
     announce 'screencapture location = ~/Documents/screenshots'
     defaults write com.apple.screencapture location ~/Documents/screenshots
+}
+
+function install_my_brews() {
+    announce 'Installing my brews'
+    xargs brew install < $HOME/.themikejr-dotfiles/brews.txt
+}
+
+function install_my_casks() {
+    announce 'Installing my casks'
+    xargs brew cask install < $HOME/.themikejr-dotfiles/casks.txt
 }
