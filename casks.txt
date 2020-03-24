@@ -1,0 +1,3 @@
+font-fira-code
+iterm2
+the-unarchiver
