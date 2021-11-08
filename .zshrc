@@ -40,7 +40,7 @@ function update() {
     brew cleanup -s
 
     announce "upgrade brew cask packages"
-    brew cask upgrade
+    brew upgrade --cask
 
     announce "updating nvm node stable"
     nvm install node --reinstall-packages-from=node
@@ -53,6 +53,9 @@ function update() {
 
     announce "updating nvm lts/dubnium"
     nvm install lts/dubnium --reinstall-packages-from=node
+
+    announce "updating nvm lts/fermium"
+    nvm install lts/fermium --reinstall-packages-from=node
 
     announce "updating vim plugins"
     vim +PlugUpdate +PlugUpgrade +UpdateRemotePlugins +qa
