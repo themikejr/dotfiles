@@ -1,0 +1,13 @@
+layout {
+  cwd "/Users/themikejr/Development/clear-bible/symphony-backend/"
+  tab name="editor"  {
+    pane split_direction="horizontal" size="65%" {
+		  pane name="vim" command="nvim-3"
+	  }
+	  pane split_direction="vertical" size="35%" {
+      pane name="git" command="zsh"
+      pane name="server" command="zsh" 
+      pane name="misc" command="zsh" 
+    }
+  }
+}

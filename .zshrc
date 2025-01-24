@@ -124,6 +124,7 @@ alias gs="git status"
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+alias nvim-3='nvim -c "Neotree" -c "wincmd l" -c "vsplit | enew | setlocal buftype=nofile" -c "vsplit | enew | setlocal buftype=nofile"'
 # alias vim="lvim"
 # alias vim-3="lvim -O3 -c 'NvimTreeToggle'"
 # alias hal='(cd ~/Development/themikejr/hal && poetry run python hal.py)'

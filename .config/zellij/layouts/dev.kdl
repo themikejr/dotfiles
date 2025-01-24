@@ -1,0 +1,16 @@
+layout {
+    pane split_direction="horizontal" {
+        // Top pane for neovim - 70% height
+        pane size="75%" name="vim" command="/bin/zsh"
+        
+        // Bottom pane split horizontally into 4 equal sections - 30% height
+        pane size="25%" split_direction="vertical" {
+            pane command="/bin/zsh"
+            pane command="/bin/zsh"
+            pane command="/bin/zsh"
+        }
+    }
+    pane size=1 borderless=true {
+        plugin location="status-bar"
+    }
+}
