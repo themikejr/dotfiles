@@ -183,3 +183,6 @@ export DOTNET_ROOT="$HOMEBREW_PREFIX/opt/dotnet/libexec"
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/themikejr/.cache/lm-studio/bin"
+
+# PIPX
+export PATH="$HOME/.local/bin:$PATH"
