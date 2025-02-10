@@ -1,0 +1,7 @@
+font-family = Cascadia Mono NF
+theme = synthwave
+font-size = 13.5
+adjust-cell-height = 12%
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
