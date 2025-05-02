@@ -8,23 +8,21 @@
 return {
   "AstroNvim/astrocommunity",
   -- Language Packs
-  { import = "astrocommunity.pack.lua" },
-  { import = "astrocommunity.pack.python" },
-  { import = "astrocommunity.pack.html-css" },
+  { import = "astrocommunity.pack.astro" },
   { import = "astrocommunity.pack.bash" },
   { import = "astrocommunity.pack.docker" },
+  { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.json" },
+  { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.markdown" },
-  -- { import = "astrocommunity.pack.sql" },
+  { import = "astrocommunity.pack.python-ruff" },
+  { import = "astrocommunity.pack.ruby" },
+  { import = "astrocommunity.pack.sql" },
   { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.pack.toml" },
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.vue" },
-  { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.pack.xml" },
-
-  -- Completions
-  { import = "astrocommunity.completion.copilot-cmp" },
-
+  { import = "astrocommunity.pack.yaml" },
   -- import/override with your plugins folder
 }
